@@ -8,7 +8,6 @@ class CartService {
   async addToCart(userId, productData) {
     const cart = await this.getCartByUserId(userId);
     if (cart) {
-      // Add product to cart logic
       return cart.update({ products: [...cart.products, productData] });
     } else {
       return Cart.create({ userId, products: [productData] });
@@ -18,7 +17,6 @@ class CartService {
   async removeFromCart(userId, productId) {
     const cart = await this.getCartByUserId(userId);
     if (cart) {
-      // Remove product from cart logic
       const updatedProducts = cart.products.filter(
         (product) => product.id !== productId
       );

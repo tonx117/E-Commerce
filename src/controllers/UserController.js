@@ -25,8 +25,21 @@ class UserController {
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+    const { username, email, password, role } = req.body;
+
+    const validRoles = ["cliente", "vendedor", "admin"];
+    if (!validRoles.includes(role)) {
+      return res.status(400).json({ message: "Rol no válido" });
+    }
+
     try {
-      const newUser = await UserService.createUser(req.body);
+      const newUser = await UserService.createUser({
+        username,
+        email,
+        password,
+        role,
+      });
       res.status(201).json(newUser);
     } catch (err) {
       res.status(400).json({ message: err.message });
@@ -38,8 +51,21 @@ class UserController {
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+    const { username, email, password, role } = req.body;
+
+    const validRoles = ["cliente", "vendedor", "admin"];
+    if (role && !validRoles.includes(role)) {
+      return res.status(400).json({ message: "Rol no válido" });
+    }
+
     try {
-      const updatedUser = await UserService.updateUser(req.params.id, req.body);
+      const updatedUser = await UserService.updateUser(req.params.id, {
+        username,
+        email,
+        password,
+        role,
+      });
       res.json(updatedUser);
     } catch (err) {
       res.status(404).json({ message: err.message });

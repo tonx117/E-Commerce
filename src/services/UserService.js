@@ -20,11 +20,25 @@ class UserService {
     if (existingUser) {
       throw new Error("El correo electrónico ya está en uso");
     }
+
+    const validRoles = ["cliente", "vendedor", "admin"];
+    if (!validRoles.includes(userData.role)) {
+      throw new Error("Rol no válido");
+    }
+
     return User.create(userData);
   }
 
   async updateUser(id, userData) {
     const user = await this.getUserById(id);
+
+    if (userData.role) {
+      const validRoles = ["cliente", "vendedor", "admin"];
+      if (!validRoles.includes(userData.role)) {
+        throw new Error("Rol no válido");
+      }
+    }
+
     return user.update(userData);
   }
 
