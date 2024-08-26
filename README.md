@@ -30,7 +30,7 @@ Este proyecto es un backend para una aplicación de comercio electrónico. Está
 
 #Estructura del Proyecto
 
-
+```plaintext
 E-COMMERCE/
 ├── node_modules/
 ├── src/
