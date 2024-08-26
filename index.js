@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import productRoutes from './src/routes/productos.routes.js';
+import productRoutes from './src/routes/products.routes.js';
 import sequelize from './src/db/database.js'
 
 dotenv.config({ path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development' });
