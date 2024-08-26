@@ -24,8 +24,15 @@ Este proyecto es un backend para una aplicación de comercio electrónico. Está
 
   ```bash
   npm install
-
   ```
+4. Configura las variables de entorno:
+   crea un .env con las siguientes variables:
+   - DB_DRIVER=""
+   - DB_USERNAME=""
+   - DB_PASSWORD=""
+   - DB_HOST=""
+   - DB_PORT=""
+   - DB_NAME=""
 
 
 ## Estructura del Proyecto
