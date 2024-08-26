@@ -28,7 +28,7 @@ Este proyecto es un backend para una aplicación de comercio electrónico. Está
   ```
 
 
-#Estructura del Proyecto
+## Estructura del Proyecto
 
 ```plaintext
 E-COMMERCE/
